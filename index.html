@@ -9,7 +9,12 @@
 <body>
   <header class="nav">
     <div class="logo">📘 Marketer</div>
-    <nav>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+    <nav id="nav-menu">
       <a href="this-is-marketing.html">This Is Marketing</a>
       <a href="storybrand.html">StoryBrand</a>
       <a href="jab-jab-jab.html">Jab, Jab, Jab</a>
@@ -28,5 +33,17 @@
       </div>
     </div>
   </section>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', !expanded);
+    });
+  </script>
 </body>
 </html>
